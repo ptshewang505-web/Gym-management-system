@@ -1,12 +1,19 @@
 
+import { NavLink } from "react-router-dom";
+
 function Sidebar() {
   return (
     <aside className="sidebar glass-panel">
       <p className="sidebar-label">WORKSPACE</p>
 
-      <div className="sidebar-item active">
+      <NavLink
+        to="/dashboard"
+        className={({ isActive }) =>
+          `sidebar-item ${isActive ? "active" : ""}`
+        }
+      >
         Dashboard
-      </div>
+      </NavLink>
 
       <div className="sidebar-item">
         Members

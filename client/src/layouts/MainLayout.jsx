@@ -1,8 +1,9 @@
 
+import { Outlet } from "react-router-dom";
+
 import Navbar from "../components/layout/Navbar";
 import Sidebar from "../components/layout/Sidebar";
 import Footer from "../components/layout/Footer";
-import Dashboard from "../pages/Dashboard/Dashboard";
 
 function MainLayout() {
   return (
@@ -11,10 +12,9 @@ function MainLayout() {
 
       <div className="app-body">
         <Sidebar />
-        
 
         <main className="content-area glass-panel">
-          <Dashboard />
+          <Outlet />
         </main>
       </div>
 

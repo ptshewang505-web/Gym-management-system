@@ -1,15 +1,20 @@
+import { Link } from "react-router-dom";
 
 function NotFound() {
   return (
-    <section className="page-content">
-      <p className="eyebrow">ERROR 404</p>
+    <div className="not-found-container">
+      <div className="not-found-content">
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <p>
+          The page you are looking for doesn't exist or has been moved.
+        </p>
 
-      <h1>Page Not Found</h1>
-
-      <p className="page-description">
-        The requested page does not exist.
-      </p>
-    </section>
+        <Link to="/" className="back-home-btn">
+          Back to Home
+        </Link>
+      </div>
+    </div>
   );
 }
 
