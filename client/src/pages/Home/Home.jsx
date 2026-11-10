@@ -1,8 +1,11 @@
 
+import { useNavigate } from "react-router-dom";
+
 import PageTitle from "../../components/ui/PageTitle";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
-import { useNavigate } from "react-router-dom";
+
+import "./Home.css";
 
 function Home() {
   const navigate = useNavigate();

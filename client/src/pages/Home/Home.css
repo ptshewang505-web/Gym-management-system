@@ -1,0 +1,15 @@
+
+.home-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.home-page .reusable-card {
+  max-width: 700px;
+}
+
+@media (max-width: 480px) {
+  .home-page .reusable-card {
+    max-width: 100%;
+  }
+}

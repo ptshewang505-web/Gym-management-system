@@ -1,0 +1,15 @@
+
+.profile-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.profile-page .reusable-card {
+  max-width: 600px;
+}
+
+@media (max-width: 480px) {
+  .profile-page .reusable-card {
+    max-width: 100%;
+  }
+}

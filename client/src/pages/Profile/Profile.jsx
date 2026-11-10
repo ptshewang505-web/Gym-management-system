@@ -3,9 +3,11 @@ import PageTitle from "../../components/ui/PageTitle";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 
+import "./Profile.css";
+
 function Profile() {
   return (
-    <div>
+    <div className="profile-page">
       <PageTitle
         title="My Profile"
         subtitle="View your account information"

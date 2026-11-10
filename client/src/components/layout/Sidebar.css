@@ -1,0 +1,42 @@
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+
+  background: #111;
+  color: white;
+
+  position: relative;
+  z-index: 1000;
+}
+
+/* Desktop: always visible */
+@media screen and (min-width: 769px) {
+  .sidebar {
+    display: block;
+    transform: none;
+  }
+}
+
+/* Tablet and mobile */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 260px;
+    height: 100vh;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+    z-index: 1001;
+  }
+
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+}
