@@ -1,0 +1,67 @@
+
+.members-page {
+  width: 100%;
+}
+
+.member-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.member-form input {
+  flex: 1;
+  min-width: 180px;
+
+  padding: 12px;
+  border-radius: 8px;
+
+  background: #080808;
+  border: 1px solid #333;
+  color: white;
+
+  outline: none;
+}
+
+.member-form input:focus {
+  border-color: #b9ff9c;
+}
+
+.input-preview {
+  color: #999;
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+.members-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.members-list > h2 {
+  grid-column: 1 / -1;
+  color: white;
+  font-size: 20px;
+}
+
+.empty-message {
+  color: #999;
+}
+
+@media (max-width: 600px) {
+  .members-list {
+    grid-template-columns: 1fr;
+  }
+
+  .member-form {
+    flex-direction: column;
+  }
+
+  .member-form input {
+    box-sizing: border-box;
+    width: 100%;
+  }
+}

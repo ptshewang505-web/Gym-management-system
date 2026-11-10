@@ -8,6 +8,9 @@ import Profile from "../pages/Profile/Profile";
 import Login from "../pages/Login/Login";
 import NotFound from "../pages/NotFound/NotFound";
 
+import Members from "../pages/Members/Members"; 
+
+
 function AppRoutes() {
   return (
     <Routes>
@@ -15,6 +18,7 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/members" element={<Members />} />
       </Route>
 
       <Route path="/login" element={<Login />} />

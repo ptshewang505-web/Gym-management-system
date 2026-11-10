@@ -1,12 +1,23 @@
 
 import "./Card.css";
 
-function Card({ title, description, children }) {
+function Card({
+  title,
+  value,
+  description,
+  children,
+}) {
   return (
-    <div className="reusable-card">
+    <div className="dashboard-card">
       <h3>{title}</h3>
 
-      {description && <p>{description}</p>}
+      {value !== undefined && (
+        <h2 className="card-value">{value}</h2>
+      )}
+
+      {description && (
+        <p className="card-description">{description}</p>
+      )}
 
       {children}
     </div>

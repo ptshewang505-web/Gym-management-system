@@ -1,30 +1,35 @@
 
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import PageTitle from "../../components/ui/PageTitle";
-import Card from "../../components/ui/Card";
+import Welcome from "../../components/ui/Welcome";
 import Button from "../../components/ui/Button";
 
-import "./Home.css";
-
 function Home() {
-  const navigate = useNavigate();
-
   return (
     <div className="home-page">
+
       <PageTitle
-        title="Gym Management System"
-        subtitle="Manage members, trainers, attendance, and payments."
+        title="GYMFLOW"
+        description="Your complete gym management solution."
       />
 
-      <Card
-        title="Welcome to GymFlow"
-        description="A centralized platform for managing gym operations."
-      >
-        <Button onClick={() => navigate("/dashboard")}>
+      <Welcome
+        name="Admin"
+        role="Administrator"
+      />
+
+      <p>
+        Manage gym members, trainers, attendance,
+        membership plans, and payments from one place.
+      </p>
+
+      <Link to="/dashboard">
+        <Button>
           Go to Dashboard
         </Button>
-      </Card>
+      </Link>
+
     </div>
   );
 }

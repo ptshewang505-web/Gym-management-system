@@ -2,34 +2,52 @@
 import { useState } from "react";
 import { Menu, X, UserRound } from "lucide-react";
 import { NavLink } from "react-router-dom";
+
 import "./Navbar.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <header className="navbar">
 
-      {/* Hamburger: tablet and mobile only */}
+      {/* Hamburger: tablet/mobile only */}
       <button
         className="hamburger-btn"
-        onClick={() => setMenuOpen(!menuOpen)}
+        onClick={() => setMenuOpen((prev) => !prev)}
         aria-label="Toggle navigation"
+        aria-expanded={menuOpen}
       >
-        {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        {menuOpen ? (
+          <X size={24} />
+        ) : (
+          <Menu size={24} />
+        )}
       </button>
 
       {/* Logo */}
-      <NavLink to="/" className="navbar-brand" onClick={closeMenu}>
+      <NavLink
+        to="/"
+        className="navbar-brand"
+        onClick={closeMenu}
+      >
         GYMFLOW
       </NavLink>
 
-      {/* Navigation */}
-      <nav className={`navbar-links ${menuOpen ? "navbar-open" : ""}`}>
+      {/* Navigation links */}
+      <nav
+        className={`navbar-links ${
+          menuOpen ? "navbar-open" : ""
+        }`}
+      >
 
-        <NavLink to="/" onClick={closeMenu}>Home</NavLink>
+        <NavLink to="/" onClick={closeMenu}>
+          Home
+        </NavLink>
 
         <NavLink to="/dashboard" onClick={closeMenu}>
           Dashboard
@@ -59,12 +77,17 @@ function Navbar() {
           Login
         </NavLink>
 
-        <NavLink to="/profile" onClick={closeMenu}>
+        <NavLink
+          to="/profile"
+          className="profile-link"
+          onClick={closeMenu}
+        >
           <UserRound size={18} />
           Profile
         </NavLink>
 
       </nav>
+
     </header>
   );
 }

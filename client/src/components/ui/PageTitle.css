@@ -1,16 +1,23 @@
 
 .page-title {
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .page-title h1 {
-  color: #fff;
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 10px;
 }
 
 .page-title p {
   color: #999;
-  font-size: 15px;
+  font-size: 14px;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .page-title h1 {
+    font-size: 24px;
+  }
 }

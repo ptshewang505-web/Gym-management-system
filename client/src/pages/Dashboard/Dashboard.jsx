@@ -1,59 +1,99 @@
 
+import { useState } from "react";
+
 import PageTitle from "../../components/ui/PageTitle";
+import Welcome from "../../components/ui/Welcome";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 
 import "./Dashboard.css";
 
 function Dashboard() {
+  const [members, setMembers] = useState(120);
+  const [trainers, setTrainers] = useState(8);
+  const [attendance, setAttendance] = useState(0);
+  const [loggedIn, setLoggedIn] = useState(true);
+
   return (
     <div className="dashboard-page">
+
       <PageTitle
         title="Dashboard"
-        subtitle="Manage your gym activities"
+        description="Manage your gym activities."
       />
 
-      <div className="dashboard-cards">
+      <Welcome
+        name="Admin"
+        role="Administrator"
+      />
+
+      {/* Dashboard statistics */}
+      <div className="dashboard-grid">
+
         <Card
           title="Total Members"
+          value={members}
           description="Registered gym members"
         >
-          <h2>120</h2>
-          <Button onClick={() => alert("Members clicked")}>
-            View Members
+          <Button
+            onClick={() => setMembers((prev) => prev + 1)}
+          >
+            Add Member
           </Button>
         </Card>
 
         <Card
-          title="Active Trainers"
+          title="Total Trainers"
+          value={trainers}
           description="Available gym trainers"
         >
-          <h2>8</h2>
-          <Button onClick={() => alert("Trainers clicked")}>
-            View Trainers
+          <Button
+            variant="secondary"
+            onClick={() => setTrainers((prev) => prev + 1)}
+          >
+            Add Trainer
           </Button>
         </Card>
 
         <Card
-          title="Membership Plans"
-          description="Available membership options"
+          title="Today's Attendance"
+          value={attendance}
+          description="Members checked in today"
         >
-          <h2>5</h2>
-          <Button onClick={() => alert("Plans clicked")}>
-            View Plans
+          <Button
+            onClick={() => setAttendance((prev) => prev + 1)}
+          >
+            Mark Attendance
+          </Button>
+
+          <Button
+            variant="secondary"
+            onClick={() => setAttendance(0)}
+          >
+            Reset
           </Button>
         </Card>
 
-        <Card
-          title="Attendance"
-          description="Manage daily gym attendance"
-        >
-          <h2>85%</h2>
-          <Button onClick={() => alert("Attendance clicked")}>
-            View Attendance
-          </Button>
-        </Card>
       </div>
+
+      {/* Conditional rendering */}
+      <div className="dashboard-status">
+
+        <h3>
+          {loggedIn
+            ? "Welcome, Admin!"
+            : "Please Login"}
+        </h3>
+
+        <Button
+          variant="secondary"
+          onClick={() => setLoggedIn((prev) => !prev)}
+        >
+          {loggedIn ? "Logout" : "Login"}
+        </Button>
+
+      </div>
+
     </div>
   );
 }

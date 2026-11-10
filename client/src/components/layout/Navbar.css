@@ -1,24 +1,31 @@
 
-/* Navbar */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
+
   min-height: 70px;
   padding: 0 24px;
 
   background: #111;
   color: white;
   border-bottom: 1px solid #292929;
+
+  position: relative;
+  z-index: 1002;
 }
 
-/* Logo */
 .navbar-brand {
   color: #b9ff9c;
   font-size: 22px;
   font-weight: 800;
   text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Desktop hamburger hidden */
+.hamburger-btn {
+  display: none;
 }
 
 /* Desktop navigation */
@@ -33,9 +40,12 @@
   display: flex;
   align-items: center;
   gap: 6px;
+
   color: #ccc;
   text-decoration: none;
   font-size: 14px;
+
+  transition: color 0.2s ease;
 }
 
 .navbar-links a:hover,
@@ -43,15 +53,15 @@
   color: #b9ff9c;
 }
 
-/* Hamburger hidden on desktop */
-.hamburger-btn {
-  display: none;
+.profile-link {
+  white-space: nowrap;
 }
 
 /* Tablet and mobile */
 @media screen and (max-width: 768px) {
   .navbar {
     padding: 0 16px;
+    gap: 12px;
   }
 
   /* Show hamburger */
@@ -62,9 +72,16 @@
 
     background: transparent;
     color: #b9ff9c;
+
     border: none;
     padding: 8px;
+    border-radius: 8px;
+
     cursor: pointer;
+  }
+
+  .hamburger-btn:hover {
+    background: #252525;
   }
 
   /* Hide navigation initially */
@@ -80,14 +97,16 @@
     align-items: stretch;
     gap: 0;
 
-    background: #111;
+    margin: 0;
     padding: 10px 16px;
+
+    background: #111;
     border-bottom: 1px solid #333;
 
     z-index: 1000;
   }
 
-  /* Show links when hamburger clicked */
+  /* Show navigation when hamburger clicked */
   .navbar-links.navbar-open {
     display: flex;
   }

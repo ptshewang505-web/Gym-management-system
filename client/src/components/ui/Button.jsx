@@ -6,12 +6,14 @@ function Button({
   onClick,
   type = "button",
   variant = "primary",
+  disabled = false,
 }) {
   return (
     <button
       type={type}
-      className={`reusable-btn ${variant}`}
+      className={`custom-button ${variant}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>

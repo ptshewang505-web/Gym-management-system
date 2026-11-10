@@ -1,34 +1,32 @@
 
-.reusable-card {
-  width: 100%;
-  min-width: 0;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  color: #ffffff;
-  overflow-wrap: anywhere;
-  transition: 0.3s;
+.dashboard-card {
+  background: #111;
+  border: 1px solid #292929;
+  border-radius: 14px;
+  padding: 22px;
+  color: white;
+  transition: 0.2s ease;
 }
 
-.reusable-card h3 {
-  margin-bottom: 0.75rem;
-  color: #b9ff9c;
-  font-size: 1.25rem;
-}
-
-.reusable-card p {
-  margin-bottom: 1rem;
-  color: #aaaaaa;
-  line-height: 1.6;
-}
-
-.reusable-card:hover {
+.dashboard-card:hover {
   border-color: #b9ff9c;
   transform: translateY(-3px);
 }
 
-.reusable-card h2 {
-  margin-bottom: 1rem;
-  font-size: 2rem;
+.dashboard-card h3 {
+  color: #aaa;
+  font-size: 14px;
+  margin: 0 0 15px;
+}
+
+.card-value {
+  color: #b9ff9c;
+  font-size: 32px;
+  margin: 0;
+}
+
+.card-description {
+  color: #777;
+  font-size: 13px;
+  margin-top: 10px;
 }

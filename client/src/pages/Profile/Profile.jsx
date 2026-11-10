@@ -1,26 +1,51 @@
 
+import { useState } from "react";
+
 import PageTitle from "../../components/ui/PageTitle";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 
-import "./Profile.css";
-
 function Profile() {
+  const [name, setName] = useState("Admin");
+  const [editing, setEditing] = useState(false);
+
   return (
-    <div className="profile-page">
+    <div>
+
       <PageTitle
-        title="My Profile"
-        subtitle="View your account information"
+        title="Profile"
+        description="Manage your account information."
       />
 
       <Card
-        title="User Information"
-        description="Manage your personal account details."
+        title="Administrator Profile"
+        description="Update your profile name."
       >
-        <Button onClick={() => alert("Edit profile clicked")}>
-          Edit Profile
+
+        {editing ? (
+
+          <input
+            value={name}
+            onChange={(event) =>
+              setName(event.target.value)
+            }
+            placeholder="Enter your name"
+          />
+
+        ) : (
+
+          <h2>{name}</h2>
+
+        )}
+
+        <Button
+          onClick={() => setEditing((prev) => !prev)}
+        >
+          {editing ? "Save" : "Edit Profile"}
         </Button>
+
       </Card>
+
     </div>
   );
 }

@@ -1,12 +1,14 @@
 
 import "./PageTitle.css";
 
-function PageTitle({ title, subtitle }) {
+function PageTitle({
+  title,
+  description,
+}) {
   return (
     <div className="page-title">
       <h1>{title}</h1>
-
-      {subtitle && <p>{subtitle}</p>}
+      {description && <p>{description}</p>}
     </div>
   );
 }

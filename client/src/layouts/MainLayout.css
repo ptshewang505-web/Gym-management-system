@@ -3,12 +3,25 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #080808;
 }
 
 .main-content {
   flex: 1;
   min-width: 0;
   padding: 24px;
+}
+
+.main-footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #292929;
+}
+
+.main-footer p {
+  color: #777;
+  font-size: 12px;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
