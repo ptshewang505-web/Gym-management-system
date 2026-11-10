@@ -1,21 +1,24 @@
 
+require("dotenv").config();
+
 const app = require("./app");
+const connectDB = require("./src/config/database");
 
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, () => {
-  console.log("--------------------------------");
-  console.log("GYMFLOW Backend Server");
-  console.log(`Server running on port ${PORT}`);
-  console.log(`URL: http://localhost:${PORT}`);
-  console.log("--------------------------------");
-});
+const startServer = async () => {
+  try {
+    // Connect to MongoDB first
+    await connectDB();
 
-// Handle server errors
-server.on("error", (error) => {
-  if (error.code === "EADDRINUSE") {
-    console.error(`Port ${PORT} is already in use`);
-  } else {
-    console.error("Server error:", error.message);
+    // Start Express only after successful connection
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error("Server startup failed:", error.message);
+    process.exit(1);
   }
-});
+};
+
+startServer();

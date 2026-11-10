@@ -1,10 +1,13 @@
 # Dependencies
-node_modules/
 
-# Environment variables and secrets
+node_modules/
 .env
 .env.*
 !.env.example
+uploads/
+
+
+
 
 # Build output
 dist/
