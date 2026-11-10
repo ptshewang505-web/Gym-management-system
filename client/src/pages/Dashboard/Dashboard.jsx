@@ -1,39 +1,51 @@
 
-import Card from "../../components/common/Card";
+import PageTitle from "../../components/ui/PageTitle";
+import Card from "../../components/ui/Card";
+import Button from "../../components/ui/Button";
 
 function Dashboard() {
   return (
-    <section className="page-content">
-      <p className="eyebrow">OVERVIEW</p>
+    <div className="dashboard-page">
+      <PageTitle
+        title="Dashboard"
+        subtitle="Manage your gym activities"
+      />
 
-      <h1>Dashboard</h1>
-
-      <p className="page-description">
-        Monitor your gym's daily activities.
-      </p>
-
-      <div className="dashboard-grid">
-        <Card title="Total Members">
+      <div className="dashboard-cards">
+        <Card
+          title="Total Members"
+          description="Registered gym members"
+        >
           <h2>120</h2>
-          <p>Registered gym members</p>
+          <Button onClick={() => alert("Members clicked")}>
+            View Members
+          </Button>
         </Card>
 
-        <Card title="Active Trainers">
-          <h2>08</h2>
-          <p>Available fitness trainers</p>
+        <Card
+          title="Active Trainers"
+          description="Available gym trainers"
+        >
+          <h2>8</h2>
+          <Button
+            variant="secondary"
+            onClick={() => alert("Trainers clicked")}
+          >
+            View Trainers
+          </Button>
         </Card>
 
-        <Card title="Membership Plans">
-          <h2>05</h2>
-          <p>Available membership plans</p>
-        </Card>
-
-        <Card title="Attendance">
-          <h2>32</h2>
-          <p>Today's attendance records</p>
+        <Card
+          title="Membership Plans"
+          description="Available membership options"
+        >
+          <h2>5</h2>
+          <Button onClick={() => alert("Plans clicked")}>
+            View Plans
+          </Button>
         </Card>
       </div>
-    </section>
+    </div>
   );
 }
 

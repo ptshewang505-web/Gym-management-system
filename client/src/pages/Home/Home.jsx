@@ -1,23 +1,28 @@
 
-import Button from "../../components/common/Button";
+import PageTitle from "../../components/ui/PageTitle";
+import Card from "../../components/ui/Card";
+import Button from "../../components/ui/Button";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
-    <section className="page-content">
-      <p className="eyebrow">FITNESS MANAGEMENT</p>
+    <div className="home-page">
+      <PageTitle
+        title="Gym Management System"
+        subtitle="Manage members, trainers, attendance, and payments."
+      />
 
-      <h1>
-        Build a stronger
-        <span className="lime-text"> community.</span>
-      </h1>
-
-      <p className="page-description">
-        Manage gym members, trainers, membership plans,
-        attendance and payments in one place.
-      </p>
-
-      <Button>Get Started</Button>
-    </section>
+      <Card
+        title="Welcome to GymFlow"
+        description="A centralized platform for managing gym operations."
+      >
+        <Button onClick={() => navigate("/dashboard")}>
+          Go to Dashboard
+        </Button>
+      </Card>
+    </div>
   );
 }
 

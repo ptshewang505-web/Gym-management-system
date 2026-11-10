@@ -1,14 +1,15 @@
 
+import "./Footer.css";
+
 function Footer() {
   return (
     <footer className="footer">
       <p>
-        © 2026 GymFlow Management System
+        © {new Date().getFullYear()} GymFlow.
+        All rights reserved.
       </p>
 
-      <p>
-        Built for a stronger tomorrow.
-      </p>
+      <p>Gym Management System</p>
     </footer>
   );
 }

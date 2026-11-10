@@ -1,0 +1,26 @@
+
+.reusable-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reusable-btn.primary {
+  background: #b9ff9c;
+  color: #0b0b0b;
+}
+
+.reusable-btn.secondary {
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.reusable-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}

@@ -1,21 +1,25 @@
 
+import PageTitle from "../../components/ui/PageTitle";
+import Card from "../../components/ui/Card";
+import Button from "../../components/ui/Button";
+
 function Profile() {
   return (
-    <section className="page-content">
-      <p className="eyebrow">ACCOUNT</p>
+    <div>
+      <PageTitle
+        title="My Profile"
+        subtitle="View your account information"
+      />
 
-      <h1>Profile</h1>
-
-      <p className="page-description">
-        View and manage your account information.
-      </p>
-
-      <div className="glass-panel">
-        <p>Name: Gym Administrator</p>
-        <p>Role: Administrator</p>
-        <p>Status: Active</p>
-      </div>
-    </section>
+      <Card
+        title="User Information"
+        description="Manage your personal account details."
+      >
+        <Button onClick={() => alert("Edit profile clicked")}>
+          Edit Profile
+        </Button>
+      </Card>
+    </div>
   );
 }
 
