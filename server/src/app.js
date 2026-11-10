@@ -1,19 +1,21 @@
 
-// server/src/app.js
-
 const express = require("express");
-const cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+// Middleware for JSON requests
 app.use(express.json());
 
+// Middleware for URL-encoded requests
+app.use(express.urlencoded({ extended: true }));
+
+// Test route
 app.get("/", (req, res) => {
   res.json({
-    message: "Welcome to Gym Management System API",
-    status: "Running",
+    success: true,
+    message: "GYMFLOW Backend is running successfully!",
   });
 });
 
+// Export application
 module.exports = app;
