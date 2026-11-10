@@ -1,26 +1,8 @@
 
-import { useEffect, useState } from "react";
-import axios from "axios";
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
-  const [message, setMessage] = useState("Connecting...");
-
-  useEffect(() => {
-    axios.get("/api/health")
-      .then((response) => {
-        setMessage(response.data.message);
-      })
-      .catch(() => {
-        setMessage("Backend connection failed");
-      });
-  }, []);
-
-  return (
-    <div>
-      <h1>Gym Management System</h1>
-      <p>{message}</p>
-    </div>
-  );
+  return <MainLayout />;
 }
 
 export default App;
