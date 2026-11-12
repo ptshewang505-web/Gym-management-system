@@ -11,9 +11,10 @@ const startServer = async () => {
     // Connect to MongoDB first
     await connectDB();
 
-    // Start Express only after successful connection
+    // Start Express server
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
+      console.log(`API URL: http://localhost:${PORT}/api`);
     });
   } catch (error) {
     console.error("Server startup failed:", error.message);

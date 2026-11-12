@@ -58,7 +58,6 @@ const memberSchema = new mongoose.Schema(
   }
 );
 
-// Create and export the Mongoose Model
 const Member = mongoose.model("Member", memberSchema);
 
 module.exports = Member;

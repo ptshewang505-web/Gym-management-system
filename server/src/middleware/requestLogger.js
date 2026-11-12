@@ -1,8 +1,7 @@
-const requestLogger = (req, res, next) => {
-  const currentTime = new Date().toLocaleString();
 
+const requestLogger = (req, res, next) => {
   console.log(
-    `[${currentTime}] ${req.method} ${req.originalUrl}`
+    `${new Date().toISOString()} | ${req.method} | ${req.originalUrl}`
   );
 
   next();

@@ -7,35 +7,38 @@ const errorHandler = require("./src/middleware/errorHandler");
 
 const app = express();
 
-// Parse incoming JSON
+// ======================================
+// MIDDLEWARE
+// ======================================
+
+// Parse JSON request bodies
 app.use(express.json());
 
-// Parse URL-encoded form data
-app.use(express.urlencoded({ extended: true }));
-
-// Request logger
+// Log incoming requests
 app.use(requestLogger);
 
-// Home route
-app.get("/", (req, res) => {
-  res.status(200).json({
-    message: "Welcome to GYMFLOW Gym Management System API",
-    status: "Running",
-  });
-});
+// ======================================
+// API STATUS
+// ======================================
 
-// API status route
 app.get("/api/status", (req, res) => {
   res.status(200).json({
+    success: true,
     message: "GYMFLOW API is running",
     status: "success",
   });
 });
 
-// Member routes from Sprint 12
+// ======================================
+// MEMBER CRUD ROUTES
+// ======================================
+
 app.use("/api/members", memberRoutes);
 
-// 404 handler
+// ======================================
+// 404 ROUTE
+// ======================================
+
 app.use((req, res, next) => {
   res.status(404).json({
     success: false,
@@ -43,7 +46,10 @@ app.use((req, res, next) => {
   });
 });
 
-// Error handling middleware
+// ======================================
+// GLOBAL ERROR HANDLER
+// ======================================
+
 app.use(errorHandler);
 
 module.exports = app;

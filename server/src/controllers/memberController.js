@@ -1,129 +1,181 @@
 
-const members = [
-  {
-    id: "101",
-    name: "Pema Norbu",
-    email: "pema@example.com",
-    phone: "1234567890",
-    plan: "Monthly",
-  },
-];
+const mongoose = require("mongoose");
+const Member = require("../models/Member");
 
-// Get all members
-const getMembers = (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Members retrieved successfully",
-    data: members,
-  });
+// ======================================
+// CREATE MEMBER
+// POST /api/members
+// ======================================
+
+const createMember = async (req, res, next) => {
+  try {
+    console.log("Received member data:", req.body);
+
+    const member = await Member.create(req.body);
+
+    console.log("Member saved successfully:", member._id);
+
+    res.status(201).json({
+      success: true,
+      message: "Member created successfully",
+      data: member,
+    });
+  } catch (error) {
+    console.error("Create member error:", error.message);
+    next(error);
+  }
 };
 
-// Get member by ID
-const getMemberById = (req, res) => {
-  const { id } = req.params;
+// ======================================
+// GET ALL MEMBERS
+// GET /api/members
+// ======================================
 
-  const member = members.find((item) => item.id === id);
-
-  if (!member) {
-    return res.status(404).json({
-      success: false,
-      message: "Member not found",
+const getAllMembers = async (req, res, next) => {
+  try {
+    const members = await Member.find().sort({
+      createdAt: -1,
     });
-  }
 
-  res.status(200).json({
-    success: true,
-    data: member,
-  });
+    res.status(200).json({
+      success: true,
+      count: members.length,
+      data: members,
+    });
+  } catch (error) {
+    console.error("Get all members error:", error.message);
+    next(error);
+  }
 };
 
-// Create a member
-const createMember = (req, res) => {
-  const { name, email, phone, plan } = req.body;
+// ======================================
+// GET MEMBER BY ID
+// GET /api/members/:id
+// ======================================
 
-  if (!name || !email || !phone || !plan) {
-    return res.status(400).json({
-      success: false,
-      message: "All member fields are required",
+const getMemberById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    if (!mongoose.isValidObjectId(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid member ID",
+      });
+    }
+
+    const member = await Member.findById(id);
+
+    if (!member) {
+      return res.status(404).json({
+        success: false,
+        message: "Member not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: member,
     });
+  } catch (error) {
+    console.error("Get member by ID error:", error.message);
+    next(error);
   }
-
-  const newMember = {
-    id: String(Date.now()),
-    name,
-    email,
-    phone,
-    plan,
-  };
-
-  members.push(newMember);
-
-  res.status(201).json({
-    success: true,
-    message: "Member created successfully",
-    data: newMember,
-  });
 };
 
-// Update a member
-const updateMember = (req, res) => {
-  const { id } = req.params;
+// ======================================
+// UPDATE MEMBER
+// PUT /api/members/:id
+// ======================================
 
-  const member = members.find((item) => item.id === id);
+const updateMember = async (req, res, next) => {
+  try {
+    const { id } = req.params;
 
-  if (!member) {
-    return res.status(404).json({
-      success: false,
-      message: "Member not found",
+    if (!mongoose.isValidObjectId(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid member ID",
+      });
+    }
+
+    const member = await Member.findByIdAndUpdate(
+      id,
+      {
+        $set: req.body,
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    if (!member) {
+      return res.status(404).json({
+        success: false,
+        message: "Member not found",
+      });
+    }
+
+    console.log("Member updated successfully:", member._id);
+
+    res.status(200).json({
+      success: true,
+      message: "Member updated successfully",
+      data: member,
     });
+  } catch (error) {
+    console.error("Update member error:", error.message);
+    next(error);
   }
-
-  const { name, email, phone, plan } = req.body;
-
-  if (!name || !email || !phone || !plan) {
-    return res.status(400).json({
-      success: false,
-      message: "All member fields are required",
-    });
-  }
-
-  member.name = name;
-  member.email = email;
-  member.phone = phone;
-  member.plan = plan;
-
-  res.status(200).json({
-    success: true,
-    message: "Member updated successfully",
-    data: member,
-  });
 };
 
-// Delete a member
-const deleteMember = (req, res) => {
-  const { id } = req.params;
+// ======================================
+// DELETE MEMBER
+// DELETE /api/members/:id
+// ======================================
 
-  const index = members.findIndex((item) => item.id === id);
+const deleteMember = async (req, res, next) => {
+  try {
+    const { id } = req.params;
 
-  if (index === -1) {
-    return res.status(404).json({
-      success: false,
-      message: "Member not found",
+    if (!mongoose.isValidObjectId(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid member ID",
+      });
+    }
+
+    const member = await Member.findByIdAndDelete(id);
+
+    if (!member) {
+      return res.status(404).json({
+        success: false,
+        message: "Member not found",
+      });
+    }
+
+    console.log("Member deleted successfully:", member._id);
+
+    res.status(200).json({
+      success: true,
+      message: "Member deleted successfully",
+      data: member,
     });
+  } catch (error) {
+    console.error("Delete member error:", error.message);
+    next(error);
   }
-
-  members.splice(index, 1);
-
-  res.status(200).json({
-    success: true,
-    message: "Member deleted successfully",
-  });
 };
+
+// ======================================
+// EXPORT CONTROLLER FUNCTIONS
+// ======================================
 
 module.exports = {
-  getMembers,
-  getMemberById,
   createMember,
+  getAllMembers,
+  getMemberById,
   updateMember,
   deleteMember,
 };
