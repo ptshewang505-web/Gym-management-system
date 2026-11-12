@@ -1,255 +1,447 @@
 
+/* =====================================
+   MEMBERS PAGE
+===================================== */
+
 .members-page {
-  padding: 25px;
-  color: #ffffff;
+    padding: 25px;
+    color: #ffffff;
 }
 
 .member-form-card {
-  margin-top: 25px;
-  padding: 30px;
-  background: #111611;
-  border: 1px solid #263326;
-  border-radius: 16px;
+    margin-top: 25px;
+    padding: 30px;
+    background: #111611;
+    border: 1px solid #263326;
+    border-radius: 16px;
 }
 
 .member-form-card h2,
 .registered-members h2 {
-  margin-bottom: 10px;
-  font-size: 22px;
-  color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #ffffff;
 }
 
 .form-description {
-  margin-bottom: 25px;
-  color: #9ca89c;
-  font-size: 14px;
+    margin-bottom: 25px;
+    color: #9ca89c;
+    font-size: 14px;
 }
 
+/* =====================================
+   MEMBER FORM
+===================================== */
+
 .member-form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group label {
-  margin-bottom: 8px;
-  color: #dce5da;
-  font-size: 14px;
+    margin-bottom: 8px;
+    color: #dce5da;
+    font-size: 14px;
 }
 
 .form-group label span {
-  color: #b9ff9c;
+    color: #b9ff9c;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  width: 100%;
-  padding: 12px;
-  box-sizing: border-box;
-  background: #080b09;
-  color: #ffffff;
-  border: 1px solid #303b30;
-  border-radius: 8px;
-  outline: none;
-  font-size: 14px;
-  transition: border-color 0.2s;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    background: #080b09;
+    color: #ffffff;
+    border: 1px solid #303b30;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: #b9ff9c;
+    border-color: #b9ff9c;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #667066;
+    color: #667066;
 }
 
 .form-group select option {
-  background: #111611;
-  color: #ffffff;
+    background: #111611;
+    color: #ffffff;
 }
 
 .form-group textarea {
-  resize: vertical;
+    resize: vertical;
+    min-height: 90px;
 }
 
 .full-width {
-  grid-column: 1 / -1;
+    grid-column: 1 / -1;
 }
 
+/* =====================================
+   FORM MESSAGES
+===================================== */
+
 .error-message {
-  margin-top: 7px;
-  color: #ff7373;
-  font-size: 12px;
+    margin-top: 7px;
+    color: #ff7373;
+    font-size: 12px;
 }
 
 .success-message {
-  margin-bottom: 20px;
-  padding: 12px 15px;
-  color: #b9ff9c;
-  background: #17251a;
-  border: 1px solid #354d35;
-  border-radius: 8px;
-  font-size: 14px;
+    margin-top: 18px;
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    color: #b9ff9c;
+    background: #17251a;
+    border: 1px solid #354d35;
+    border-radius: 8px;
+    font-size: 14px;
 }
 
+/* =====================================
+   FORM BUTTONS
+===================================== */
+
 .form-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 25px;
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
 }
 
 .submit-btn,
-.reset-btn {
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
+.reset-btn,
+.cancel-edit-btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .submit-btn {
-  background: #b9ff9c;
-  color: #080b09;
-  border: none;
+    background: #b9ff9c;
+    color: #080b09;
+    border: none;
 }
 
 .submit-btn:hover {
-  background: #a2f583;
-  transform: translateY(-2px);
+    background: #a2f583;
+    transform: translateY(-2px);
 }
 
 .reset-btn {
-  background: transparent;
-  color: #ffffff;
-  border: 1px solid #465346;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #465346;
 }
 
 .reset-btn:hover {
-  border-color: #b9ff9c;
-  color: #b9ff9c;
+    border-color: #b9ff9c;
+    color: #b9ff9c;
 }
 
+.cancel-edit-btn {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #64748b;
+}
+
+.cancel-edit-btn:hover {
+    background: #263326;
+    border-color: #b9ff9c;
+    color: #b9ff9c;
+}
+
+.form-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* =====================================
+   REGISTERED MEMBERS
+===================================== */
+
 .registered-members {
-  margin-top: 30px;
-  padding: 25px;
-  background: #111611;
-  border: 1px solid #263326;
-  border-radius: 16px;
+    margin-top: 30px;
+    padding: 25px;
+    background: #111611;
+    border: 1px solid #263326;
+    border-radius: 16px;
 }
 
 .registered-members-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .member-count {
-  padding: 6px 12px;
-  color: #b9ff9c;
-  background: #17251a;
-  border-radius: 20px;
-  font-size: 13px;
+    padding: 6px 12px;
+    color: #b9ff9c;
+    background: #17251a;
+    border-radius: 20px;
+    font-size: 13px;
 }
 
 .empty-members {
-  padding: 20px;
-  color: #9ca89c;
-  text-align: center;
-  background: #080b09;
-  border-radius: 10px;
-  font-size: 14px;
+    padding: 20px;
+    color: #9ca89c;
+    text-align: center;
+    background: #080b09;
+    border-radius: 10px;
+    font-size: 14px;
 }
 
+/* =====================================
+   MEMBER LIST
+===================================== */
+
 .member-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .member-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 18px;
-  background: #080b09;
-  border: 1px solid #263326;
-  border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 18px;
+    background: #080b09;
+    border: 1px solid #263326;
+    border-radius: 10px;
+    transition: border-color 0.2s;
+}
+
+.member-item:hover {
+    border-color: #465346;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
 }
 
 .member-info h3 {
-  margin-bottom: 8px;
-  color: #b9ff9c;
-  font-size: 16px;
+    margin-bottom: 8px;
+    color: #b9ff9c;
+    font-size: 16px;
 }
 
 .member-info p {
-  margin-top: 5px;
-  color: #9ca89c;
-  font-size: 13px;
-  overflow-wrap: anywhere;
+    margin: 0;
+    color: #9ca89c;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.member-info p strong {
+    color: #dce5da;
+}
+
+/* =====================================
+   EDIT AND DELETE BUTTONS
+===================================== */
+
+.member-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.edit-member-btn,
+.delete-member-btn {
+    min-width: 75px;
+    padding: 9px 18px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.edit-member-btn {
+    background: #b9ff9c;
+    color: #080b09;
+    border: 1px solid #b9ff9c;
+}
+
+.edit-member-btn:hover {
+    background: #a2f583;
+    border-color: #a2f583;
+    transform: translateY(-2px);
 }
 
 .delete-member-btn {
-  padding: 8px 12px;
-  color: #ff7373;
-  background: transparent;
-  border: 1px solid #583333;
-  border-radius: 7px;
-  cursor: pointer;
+    color: #ff7373;
+    background: transparent;
+    border: 1px solid #583333;
 }
 
 .delete-member-btn:hover {
-  background: #321b1b;
+    background: #321b1b;
+    border-color: #ff7373;
 }
 
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
 @media (max-width: 768px) {
-  .members-page {
-    padding: 15px;
-  }
+    .members-page {
+        padding: 15px;
+    }
 
-  .member-form-card {
-    padding: 20px;
-  }
+    .member-form-card {
+        padding: 20px;
+    }
 
-  .member-form-grid {
-    grid-template-columns: 1fr;
-  }
+    .member-form-grid {
+        grid-template-columns: 1fr;
+    }
 
-  .full-width {
-    grid-column: auto;
-  }
+    .full-width {
+        grid-column: auto;
+    }
 
-  .form-actions {
-    flex-direction: column;
-  }
+    .form-actions {
+        flex-direction: column;
+    }
 
-  .submit-btn,
-  .reset-btn {
-    width: 100%;
-  }
+    .submit-btn,
+    .reset-btn,
+    .cancel-edit-btn {
+        width: 100%;
+    }
 
-  .registered-members {
-    padding: 20px;
-  }
+    .registered-members {
+        padding: 20px;
+    }
 
-  .member-item {
-    flex-direction: column;
-  }
+    .member-item {
+        flex-direction: column;
+    }
 
-  .delete-member-btn {
-    align-self: flex-start;
-  }
+    .member-actions {
+        width: 100%;
+    }
+
+    .member-actions button {
+        flex: 1;
+    }
+}
+
+@media (max-width: 400px) {
+    .member-form-card {
+        padding: 15px;
+    }
+
+    .registered-members {
+        padding: 15px;
+    }
+
+    .member-actions {
+        flex-direction: column;
+    }
+
+    .member-actions button {
+        width: 100%;
+    }
+}
+
+/* REGISTER / UPDATE MEMBER BUTTON */
+
+.submit-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 180px;
+    padding: 13px 25px;
+
+    background: #b9ff9c;
+    color: #080b09;
+
+    border: 1px solid #b9ff9c;
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    box-shadow: 0 0 0 transparent;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #a2f583;
+    border-color: #a2f583;
+
+    box-shadow: 0 0 18px rgba(185, 255, 156, 0.3);
+
+    transform: translateY(-3px);
+}
+
+.submit-btn:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* CANCEL BUTTON */
+
+.cancel-edit-btn {
+    min-width: 120px;
+    padding: 13px 22px;
+
+    background: transparent;
+    color: #ffffff;
+
+    border: 1px solid #465346;
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-edit-btn:hover {
+    color: #b9ff9c;
+    border-color: #b9ff9c;
+    background: #17251a;
 }

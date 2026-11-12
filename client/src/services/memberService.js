@@ -1,86 +1,60 @@
 
 const API_URL = "http://localhost:5000/api/members";
 
-// ======================================
-// HELPER FUNCTION
-// ======================================
-
+// Handle API response
 const handleResponse = async (response) => {
-  const data = await response.json();
+    const data = await response.json();
 
-  if (!response.ok) {
-    throw new Error(
-      data.message || "Something went wrong"
-    );
-  }
+    if (!response.ok) {
+        throw new Error(data.message || "Something went wrong");
+    }
 
-  return data;
+    return data;
 };
 
-// ======================================
-// GET ALL MEMBERS
-// ======================================
-
+// GET all members
 export const getMembers = async () => {
-  const response = await fetch(API_URL);
-
-  return handleResponse(response);
+    const response = await fetch(API_URL);
+    return handleResponse(response);
 };
 
-// ======================================
-// GET MEMBER BY ID
-// ======================================
-
+// GET member by ID
 export const getMemberById = async (id) => {
-  const response = await fetch(`${API_URL}/${id}`);
-
-  return handleResponse(response);
+    const response = await fetch(`${API_URL}/${id}`);
+    return handleResponse(response);
 };
 
-// ======================================
-// CREATE MEMBER
-// ======================================
-
+// POST create member
 export const createMember = async (memberData) => {
-  const response = await fetch(API_URL, {
-    method: "POST",
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(memberData)
+    });
 
-    headers: {
-      "Content-Type": "application/json",
-    },
-
-    body: JSON.stringify(memberData),
-  });
-
-  return handleResponse(response);
+    return handleResponse(response);
 };
 
-// ======================================
-// UPDATE MEMBER
-// ======================================
-
+// PUT update member
 export const updateMember = async (id, memberData) => {
-  const response = await fetch(`${API_URL}/${id}`, {
-    method: "PUT",
+    const response = await fetch(`${API_URL}/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(memberData)
+    });
 
-    headers: {
-      "Content-Type": "application/json",
-    },
-
-    body: JSON.stringify(memberData),
-  });
-
-  return handleResponse(response);
+    return handleResponse(response);
 };
 
-// ======================================
-// DELETE MEMBER
-// ======================================
-
+// DELETE member
 export const deleteMember = async (id) => {
-  const response = await fetch(`${API_URL}/${id}`, {
-    method: "DELETE",
-  });
+    const response = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE"
+    });
 
-  return handleResponse(response);
+    return handleResponse(response);
 };
