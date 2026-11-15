@@ -6,6 +6,7 @@ import Home from "../pages/Home/Home"
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Profile from "../pages/Profile/Profile";
 import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";  
 import NotFound from "../pages/NotFound/NotFound";
 
 import Members from "../pages/Members/Members"; 
@@ -22,6 +23,8 @@ function AppRoutes() {
       </Route>
 
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+
 
       <Route path="*" element={<NotFound />} />
     </Routes>

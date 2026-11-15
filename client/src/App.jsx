@@ -12,18 +12,13 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Members from "./pages/Members/Members";
 import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 import NotFound from "./pages/NotFound/NotFound";
+import Trainer from "./pages/Trainer/Trainers";
 
 import PageTitle from "./components/ui/PageTitle";
 
-function Trainers() {
-  return (
-    <PageTitle
-      title="Trainers"
-      description="Manage gym trainers."
-    />
-  );
-}
+
 
 function Plans() {
   return (
@@ -74,7 +69,7 @@ function App() {
 
           <Route
             path="/trainers"
-            element={<Trainers />}
+            element={<Trainer />}
           />
 
           <Route
@@ -100,6 +95,10 @@ function App() {
           <Route
             path="/login"
             element={<Login />}
+          />
+          <Route
+          path="/register"
+          element={<Register />}
           />
 
         </Route>

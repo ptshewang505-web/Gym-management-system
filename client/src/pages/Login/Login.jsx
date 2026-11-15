@@ -2,32 +2,49 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Dumbbell } from "lucide-react";
+import { loginUser } from "../../services/authService";
 import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
 
-    if (!email || !password) {
-      alert("Please enter your email and password.");
+    if (!email.trim() || !password) {
+      setError("Please enter your email and password.");
       return;
     }
 
-    // Demo login only. Replace with backend authentication.
-    alert("Login successful!");
-    navigate("/dashboard");
+    try {
+      setLoading(true);
+
+      const response = await loginUser({
+        email: email.trim().toLowerCase(),
+        password,
+      });
+
+      if (response.success) {
+        alert(`Welcome, ${response.data.name}!`);
+        navigate("/dashboard");
+      }
+    } catch (err) {
+      setError(err.message || "Login failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="login-page">
       <div className="login-card">
-
         <div className="login-logo">
           <Dumbbell size={32} />
         </div>
@@ -81,6 +98,10 @@ function Login() {
             </div>
           </div>
 
+          {error && (
+            <p className="error-message">{error}</p>
+          )}
+
           <div className="login-options">
             <label className="remember-me">
               <input type="checkbox" />
@@ -92,8 +113,12 @@ function Login() {
             </Link>
           </div>
 
-          <button type="submit" className="login-button">
-            Login
+          <button
+            type="submit"
+            className="login-button"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 

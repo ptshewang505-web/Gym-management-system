@@ -1,13 +1,17 @@
+
 const express = require("express");
 const cors = require("cors");
 
+const authRoutes = require("./src/routes/authRoutes");
 const memberRoutes = require("./src/routes/memberRoutes");
+const trainerRoutes = require("./src/routes/trainerRoutes");
+
 const requestLogger = require("./src/middleware/requestLogger");
 const errorHandler = require("./src/middleware/errorHandler");
 
 const app = express();
 
-// CORS configuration
+// Middleware
 app.use(cors({
     origin: "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -15,18 +19,20 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
 app.use(requestLogger);
 
+// API status
 app.get("/api/status", (req, res) => {
-    res.json({
+    res.status(200).json({
         success: true,
         message: "GYMFLOW API is running"
     });
 });
 
-// Member API
+// API routes
+app.use("/api/auth", authRoutes);
 app.use("/api/members", memberRoutes);
+app.use("/api/trainers", trainerRoutes);
 
 // 404 handler
 app.use((req, res) => {
@@ -36,7 +42,7 @@ app.use((req, res) => {
     });
 });
 
-// Error handler
+// Global error handler
 app.use(errorHandler);
 
 module.exports = app;

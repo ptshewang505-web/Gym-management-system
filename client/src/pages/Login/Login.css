@@ -184,3 +184,8 @@
     font-size: 12px;
   }
 }
+.error-message {
+  color: #ff4d4f;
+  font-size: 14px;
+  margin: 10px 0;
+}

@@ -1,0 +1,293 @@
+.trainers-page {
+    width: 100%;
+    padding: 25px;
+    color: #f1f5f9;
+}
+
+.trainers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.trainers-header h1 {
+    font-size: 28px;
+    margin-bottom: 7px;
+}
+
+.trainers-header p {
+    color: #94a3b8;
+}
+
+.trainer-count {
+    background: #17251d;
+    color: #a3e635;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.trainer-error {
+    background: #451a1a;
+    color: #fecaca;
+    padding: 13px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.trainer-form-card,
+.trainer-table-card {
+    background: #111c17;
+    border: 1px solid #26372d;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 25px;
+}
+
+.trainer-form-card h2,
+.trainer-table-card h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.trainer-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.trainer-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.trainer-field label {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.trainer-field input,
+.trainer-field select {
+    width: 100%;
+    padding: 12px;
+    color: #f1f5f9;
+    background: #0b130f;
+    border: 1px solid #35483b;
+    border-radius: 8px;
+    outline: none;
+}
+
+.trainer-field input:focus,
+.trainer-field select:focus {
+    border-color: #a3e635;
+}
+
+.trainer-field select option {
+    background: #111c17;
+}
+
+.trainer-form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.trainer-submit-btn,
+.trainer-cancel-btn,
+.trainer-refresh-btn,
+.trainer-edit-btn,
+.trainer-delete-btn {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.trainer-submit-btn {
+    background: #a3e635;
+    color: #14200f;
+}
+
+.trainer-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.trainer-cancel-btn {
+    background: #334155;
+    color: white;
+}
+
+.trainer-table-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trainer-refresh-btn {
+    background: #26372d;
+    color: #a3e635;
+}
+
+.trainer-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.trainer-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 950px;
+}
+
+.trainer-table th,
+.trainer-table td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #26372d;
+    font-size: 13px;
+}
+
+.trainer-table th {
+    color: #a3e635;
+    background: #17251d;
+}
+
+.trainer-table td {
+    color: #cbd5e1;
+}
+
+.trainer-status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.trainer-status.active {
+    background: #173d25;
+    color: #86efac;
+}
+
+.trainer-status.inactive {
+    background: #422323;
+    color: #fca5a5;
+}
+
+.trainer-actions {
+    display: flex;
+    gap: 7px;
+}
+
+.trainer-edit-btn {
+    background: #1d4ed8;
+    color: white;
+}
+
+.trainer-delete-btn {
+    background: #b91c1c;
+    color: white;
+}
+
+.trainer-message {
+    color: #94a3b8;
+    padding: 20px 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .trainers-page {
+        padding: 15px;
+    }
+
+    .trainers-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .trainer-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trainer-form-card,
+    .trainer-table-card {
+        padding: 16px;
+    }
+}
+
+
+/* Success notification */
+.success-message {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+/* Error notification */
+.error-message {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.edit-btn,
+.delete-btn,
+.cancel-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.edit-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #1d4ed8;
+}
+
+.delete-btn {
+    background: #dc2626;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
+
+.cancel-btn {
+    background: #64748b;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background: #475569;
+}
+
+.trainer-form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
